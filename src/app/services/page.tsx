@@ -14,7 +14,6 @@ const services = [
     description: 'Deep interior cleaning including vacuum, steam, leather conditioning, and odor treatment.',
     price: 99,
     features: ['Deep vacuum all surfaces', 'Steam clean carpets & seats', 'Leather conditioning', 'Dashboard & console wipe', 'Window interior clean', 'Odor treatment'],
-    emoji: '🪑',
   },
   {
     name: 'Exterior Wash & Wax',
@@ -22,7 +21,6 @@ const services = [
     description: 'Hand wash, clay bar treatment, and carnauba wax protection for a brilliant shine.',
     price: 89,
     features: ['Hand wash & rinse', 'Clay bar decontamination', 'Carnauba wax application', 'Tire shine', 'Window clean', 'Door jamb wipe'],
-    emoji: '✨',
   },
   {
     name: 'Full Detail',
@@ -30,7 +28,6 @@ const services = [
     description: 'Complete interior and exterior detailing — our most popular package.',
     price: 179,
     features: ['Full exterior wash & wax', 'Complete interior detail', 'Engine bay wipe', 'Leather conditioning', 'Odor treatment', 'All glass cleaned'],
-    emoji: '🚗',
     popular: true,
   },
   {
@@ -39,7 +36,6 @@ const services = [
     description: 'Professional-grade ceramic coating for long-term paint protection and hydrophobic finish.',
     price: 299,
     features: ['Paint decontamination', 'Surface prep & polish', 'Ceramic coating application', '6-month protection warranty', 'Hydrophobic finish', 'UV protection'],
-    emoji: '💎',
   },
   {
     name: 'Pet Hair Removal',
@@ -47,7 +43,6 @@ const services = [
     description: 'Specialized extraction of stubborn pet hair from all interior surfaces.',
     price: 49,
     features: ['Rubber brush treatment', 'High-power vacuum', 'Seat seam extraction', 'Carpet treatment', 'Floor mat cleaning'],
-    emoji: '🐾',
   },
   {
     name: 'Odor Removal',
@@ -55,7 +50,6 @@ const services = [
     description: 'Ozone and enzyme treatment to permanently eliminate odors from smoke, pets, and more.',
     price: 39,
     features: ['Ozone treatment', 'Enzyme spray application', 'Vent deodorizing', 'Carpet & upholstery treatment'],
-    emoji: '🌬️',
   },
   {
     name: 'Fleet Vehicles',
@@ -63,7 +57,6 @@ const services = [
     description: 'Bulk detailing for business fleets. Volume pricing available for 3+ vehicles.',
     price: 65,
     features: ['Volume discounts', 'Flexible scheduling', 'On-site service', 'Invoice billing available', 'Dedicated account manager'],
-    emoji: '🚛',
   },
   {
     name: 'Membership Plans',
@@ -71,7 +64,6 @@ const services = [
     description: 'Monthly recurring detail subscription. Save up to 30% compared to one-time bookings.',
     price: 59,
     features: ['Monthly basic wash', 'Priority scheduling', 'Member pricing on upgrades', 'No contracts', 'Cancel anytime'],
-    emoji: '⭐',
   },
 ]
 
@@ -102,7 +94,6 @@ export default function ServicesPage() {
                     Most Popular
                   </div>
                 )}
-                <div className="text-4xl mb-3">{service.emoji}</div>
                 <div className="flex items-start justify-between mb-2">
                   <h2 className="text-xl font-bold">{service.name}</h2>
                   <span className="text-amber-400 font-bold text-xl">From ${service.price}</span>

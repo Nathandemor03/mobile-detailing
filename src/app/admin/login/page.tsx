@@ -15,8 +15,13 @@ export default function AdminLoginPage() {
     setLoading(true)
     setError('')
 
-    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD || password === 'admin123') {
-      document.cookie = `ADMIN_SECRET=${password}; path=/; max-age=86400`
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    })
+
+    if (res.ok) {
       router.push('/admin')
     } else {
       setError('Invalid password')

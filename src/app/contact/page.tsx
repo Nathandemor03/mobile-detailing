@@ -7,6 +7,7 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -15,9 +16,20 @@ export default function ContactPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    // Simulate form submission
-    await new Promise((r) => setTimeout(r, 800))
-    setSubmitted(true)
+    setError('')
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    })
+
+    if (res.ok) {
+      setSubmitted(true)
+    } else {
+      const data = await res.json()
+      setError(data.error ?? 'Something went wrong. Please try again.')
+    }
     setLoading(false)
   }
 
@@ -38,7 +50,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
             {submitted ? (
               <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-8 text-center">
-                <div className="text-4xl mb-3">✓</div>
+                <div className="text-4xl mb-3 text-green-400">✓</div>
                 <h3 className="text-xl font-bold text-green-400 mb-2">Message Sent!</h3>
                 <p className="text-slate-400">We&apos;ll get back to you within 24 hours.</p>
               </div>
@@ -93,6 +105,11 @@ export default function ContactPage() {
                     className="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors resize-none"
                   />
                 </div>
+                {error && (
+                  <div className="bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg px-4 py-3 text-sm">
+                    {error}
+                  </div>
+                )}
                 <button
                   type="submit"
                   disabled={loading}

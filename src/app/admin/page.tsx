@@ -84,12 +84,6 @@ export default function AdminDashboard() {
   const [availCity, setAvailCity] = useState('')
   const [savingSlot, setSavingSlot] = useState(false)
 
-  useEffect(() => {
-    const cookie = document.cookie.split(';').find((c) => c.trim().startsWith('ADMIN_SECRET='))
-    if (!cookie) {
-      router.push('/admin/login')
-    }
-  }, [router])
 
   const loadData = useCallback(async () => {
     const supabase = createClient()
@@ -129,27 +123,30 @@ export default function AdminDashboard() {
   }, [loadData])
 
   async function toggleCityActive(cityId: string, current: boolean) {
-    const supabase = createClient()
-    await supabase.from('cities').update({ active: !current }).eq('id', cityId)
+    await fetch('/api/admin/cities', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: cityId, active: !current }),
+    })
     setCities((prev) => prev.map((c) => c.id === cityId ? { ...c, active: !current } : c))
   }
 
   async function toggleReviewPublished(reviewId: string, current: boolean) {
-    const supabase = createClient()
-    await supabase.from('reviews').update({ is_published: !current }).eq('id', reviewId)
+    await fetch('/api/admin/reviews', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: reviewId, is_published: !current }),
+    })
     setReviews((prev) => prev.map((r) => r.id === reviewId ? { ...r, is_published: !current } : r))
   }
 
   async function saveAvailabilitySlot() {
     if (!availDate || !availTime || !availDetailer || !availCity) return
-    const supabase = createClient()
     setSavingSlot(true)
-    const datetime = new Date(`${availDate}T${availTime}:00`).toISOString()
-    await supabase.from('availability_slots').insert({
-      detailer_id: availDetailer,
-      city_id: availCity,
-      datetime,
-      is_booked: false,
+    await fetch('/api/admin/availability', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ detailer_id: availDetailer, city_id: availCity, date: availDate, time: availTime }),
     })
     setAvailDate('')
     setAvailTime('')
@@ -178,7 +175,7 @@ export default function AdminDashboard() {
       <div className="bg-slate-900 border-b border-slate-700 px-6 py-4 flex items-center justify-between">
         <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
         <button
-          onClick={() => { document.cookie = 'ADMIN_SECRET=; max-age=0'; router.push('/admin/login') }}
+          onClick={async () => { await fetch('/api/admin/logout', { method: 'POST' }); router.push('/admin/login') }}
           className="text-sm text-slate-400 hover:text-white"
         >
           Logout

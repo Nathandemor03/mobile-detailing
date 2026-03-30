@@ -108,8 +108,10 @@ export default function HomePage() {
     <div className="bg-[#0f172a] text-white min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-36 px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'radial-gradient(circle at 30% 50%, #f59e0b 0%, transparent 50%), radial-gradient(circle at 70% 20%, #3b82f6 0%, transparent 40%)'}} />
+        <div className="absolute inset-0">
+          <img src="/hero-bg.jpg" alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-[#0f172a]/70" />
+        </div>
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/30 rounded-full px-4 py-1.5 text-amber-400 text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
@@ -315,21 +317,13 @@ export default function HomePage() {
             <p className="text-slate-400">Real results from real customers across Utah</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 flex items-center justify-center">
-              <div className="absolute top-4 left-4 bg-red-500/80 text-white text-xs font-bold px-3 py-1 rounded-full">BEFORE</div>
-              <div className="text-center text-slate-500">
-                <Car className="w-16 h-16 mx-auto mb-2 opacity-30" />
-                <p className="text-sm">Dirty, oxidized exterior</p>
-                <p className="text-xs mt-1 opacity-60">Interior covered in pet hair &amp; grime</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden h-80 border border-slate-700">
+              <img src="/car-wash.jpg" alt="Exterior detailing — foam wash on BMW" className="w-full h-full object-cover" />
+              <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">EXTERIOR DETAIL</div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-amber-900/30 to-slate-800 border border-amber-400/30 flex items-center justify-center">
-              <div className="absolute top-4 left-4 bg-green-500/80 text-white text-xs font-bold px-3 py-1 rounded-full">AFTER</div>
-              <div className="text-center text-slate-300">
-                <Sparkles className="w-16 h-16 mx-auto mb-2 text-amber-400 opacity-60" />
-                <p className="text-sm">Showroom-clean finish</p>
-                <p className="text-xs mt-1 opacity-60">Ceramic coated &amp; protected</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden h-80 border border-slate-700">
+              <img src="/car-interior.jpg" alt="Interior detailing — pristine Mercedes cabin" className="w-full h-full object-cover" />
+              <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">INTERIOR DETAIL</div>
             </div>
           </div>
         </div>
