@@ -3,11 +3,10 @@ import { createServerClient } from '@supabase/ssr'
 import Stripe from 'stripe'
 import twilio from 'twilio'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-02-25.clover',
-})
-
 export async function POST(request: NextRequest) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: '2026-02-25.clover',
+  })
   const body = await request.text()
   const sig = request.headers.get('stripe-signature')
 
