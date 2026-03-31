@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export const runtime = 'experimental-edge'
-
 async function verifyAdminCookie(cookieValue: string | undefined): Promise<boolean> {
   if (!cookieValue) return false
   const password = process.env.ADMIN_PASSWORD ?? ''
