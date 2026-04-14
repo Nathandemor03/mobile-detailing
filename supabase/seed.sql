@@ -1,3 +1,6 @@
+-- Clear existing data
+truncate table services, add_ons, service_packages, service_areas, cities restart identity cascade;
+
 -- Seed cities
 insert into cities (name, slug, active, headline, seo_title, seo_description, travel_fee) values
 ('Provo', 'provo', true, 'Mobile Detailing in Provo, UT', 'Mobile Car Detailing Provo UT | We Come to You', 'Professional mobile car detailing in Provo, Utah. We come to your home, office, or apartment.', 0),
@@ -7,7 +10,8 @@ insert into cities (name, slug, active, headline, seo_title, seo_description, tr
 ('Draper', 'draper', true, 'Mobile Detailing in Draper, UT', 'Mobile Car Detailing Draper UT | Book Online', 'Mobile car detailing in Draper, Utah.', 15),
 ('Sandy', 'sandy', true, 'Mobile Detailing in Sandy, UT', 'Mobile Car Detailing Sandy UT | Same-Day Service', 'Mobile detailing in Sandy, Utah. We come to you.', 15),
 ('St. George', 'st-george', true, 'Mobile Detailing in St. George, UT', 'Mobile Car Detailing St. George UT | Southern Utah', 'Mobile car detailing in St. George, Utah and surrounding areas.', 25),
-('Layton', 'layton', true, 'Mobile Detailing in Layton, UT', 'Mobile Car Detailing Layton UT | Davis County', 'Mobile car detailing in Layton, Utah. Serving Davis County.', 20);
+('Layton', 'layton', true, 'Mobile Detailing in Layton, UT', 'Mobile Car Detailing Layton UT | Davis County', 'Mobile car detailing in Layton, Utah. Serving Davis County.', 20)
+on conflict (slug) do nothing;
 
 -- Seed service areas
 insert into service_areas (city_id, zip_codes, booking_radius_miles)
@@ -38,15 +42,13 @@ insert into add_ons (name, price, description) values
 ('Pet Hair Removal', 49, 'Thorough pet hair extraction from seats and carpet'),
 ('Engine Bay Detail', 59, 'Clean and degrease engine bay'),
 ('Odor Elimination', 39, 'Ozone treatment or enzyme spray'),
-('Headlight Restoration', 49, 'Restore cloudy headlights to clear'),
-('Ceramic Spray Coating', 99, 'Single-layer spray ceramic for added protection');
+('Headlight Restoration', 49, 'Restore cloudy headlights to clear');
 
 -- Seed services
 insert into services (name, slug, description, base_price) values
 ('Interior Detailing', 'interior-detailing', 'Deep interior cleaning including vacuum, steam, leather conditioning, and odor treatment', 99),
 ('Exterior Wash & Wax', 'exterior-wash-wax', 'Hand wash, clay bar treatment, and carnauba wax protection', 89),
 ('Full Detail', 'full-detail', 'Complete interior and exterior detailing package', 179),
-('Ceramic Coating', 'ceramic-coating', 'Professional ceramic coating for long-term paint protection', 299),
 ('Pet Hair Removal', 'pet-hair-removal', 'Specialized pet hair extraction from all interior surfaces', 49),
 ('Odor Removal', 'odor-removal', 'Ozone and enzyme treatment to eliminate odors', 39),
 ('Fleet Vehicles', 'fleet-vehicles', 'Bulk detailing services for business fleets. Volume discounts available.', 65),

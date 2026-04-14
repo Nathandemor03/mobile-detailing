@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       total_price,
     } = body
 
-    if (!name || !email || !address || !service_package_id) {
+    if (!name || !email || !service_package_id) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
