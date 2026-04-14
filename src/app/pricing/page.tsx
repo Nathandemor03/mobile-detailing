@@ -36,7 +36,6 @@ const addOns = [
   { name: 'Engine Bay Detail', price: 59, desc: 'Clean and degrease engine bay' },
   { name: 'Odor Elimination', price: 39, desc: 'Ozone treatment or enzyme spray' },
   { name: 'Headlight Restoration', price: 49, desc: 'Restore cloudy headlights to clear' },
-  { name: 'Ceramic Spray Coating', price: 99, desc: 'Single-layer spray ceramic for added protection' },
 ]
 
 const travelFees = [

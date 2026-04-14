@@ -30,12 +30,6 @@ const values = [
   },
 ]
 
-const team = [
-  { name: 'Jake Thompson', role: 'Founder & Lead Detailer', city: 'Provo', bio: 'Started Utah Detail Co. in 2018 with a single van and a passion for clean cars. Jake has personally detailed over 2,000 vehicles.' },
-  { name: 'Maria Santos', role: 'Operations Manager', city: 'Orem', bio: 'Maria oversees scheduling, customer experience, and technician training. She ensures every job meets our quality standard.' },
-  { name: 'Derek Olsen', role: 'Senior Detailer', city: 'Salt Lake City', bio: 'Certified ceramic coating specialist with 6 years of professional detailing experience. Derek handles our most complex jobs.' },
-  { name: 'Tyler Buxton', role: 'Fleet Account Manager', city: 'Lehi', bio: 'Tyler manages our commercial fleet accounts and helps businesses keep their vehicles professionally maintained.' },
-]
 
 export default function AboutPage() {
   return (
@@ -56,13 +50,13 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold mb-4">Our Story</h2>
               <div className="space-y-4 text-slate-300 leading-relaxed">
                 <p>
-                  Utah Detail Co. was founded in 2018 by Jake Thompson, a Provo native who was tired of driving his car to a shop, waiting around for hours, and getting mediocre results. He believed there had to be a better way.
+                  Utah Detail Co. was founded in 2018 by Nathan DeMordaunt, a Provo local who was tired of driving his car to a shop, waiting around for hours, and getting mediocre results. He believed there had to be a better way.
                 </p>
                 <p>
-                  With a used van, a pressure washer, and a genuine passion for clean cars, Jake started offering mobile detailing to his neighbors in Provo. Word spread fast. Within a year, he had expanded to Orem and hired his first employee.
+                  With a used van, a pressure washer, and a genuine passion for clean cars, Nathan started offering mobile detailing to his neighbors in Provo. Word spread fast. Within a year, he had expanded to Orem and hired his first employee.
                 </p>
                 <p>
-                  Today, Utah Detail Co. serves 8 cities across Utah with a team of 12 certified technicians, a fleet of fully-equipped vans, and thousands of happy customers. We have completed over 10,000 details and maintained a 4.9-star rating throughout.
+                  Today, Utah Detail Co. serves 8 cities across Utah with a team of 12 certified technicians, and thousands of happy customers. We have completed over 10,000 details and maintained a 4.9-star rating throughout.
                 </p>
                 <p>
                   Our mission has never changed: bring professional-quality detailing directly to Utah drivers, with transparency, accountability, and respect for your time.
@@ -98,26 +92,6 @@ export default function AboutPage() {
                   <h3 className="font-bold text-lg mb-2">{value.title}</h3>
                   <p className="text-slate-400 leading-relaxed">{value.desc}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-16 px-4 bg-slate-900">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold mb-10 text-center">Meet the Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div key={member.name} className="bg-slate-800 rounded-2xl p-6 border border-slate-700 text-center">
-                <div className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center text-[#0f172a] font-extrabold text-2xl mx-auto mb-4">
-                  {member.name[0]}
-                </div>
-                <h3 className="font-bold text-white">{member.name}</h3>
-                <div className="text-amber-400 text-sm font-medium mb-1">{member.role}</div>
-                <div className="text-slate-500 text-xs mb-3">{member.city}, UT</div>
-                <p className="text-slate-400 text-xs leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>

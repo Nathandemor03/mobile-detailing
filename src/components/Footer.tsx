@@ -24,8 +24,7 @@ export default function Footer() {
               <li><Link href="/services/interior-detailing" className="hover:text-amber-400 transition-colors">Interior Detailing</Link></li>
               <li><Link href="/services/exterior-wash-wax" className="hover:text-amber-400 transition-colors">Exterior Wash & Wax</Link></li>
               <li><Link href="/services/full-detail" className="hover:text-amber-400 transition-colors">Full Detail</Link></li>
-              <li><Link href="/services/ceramic-coating" className="hover:text-amber-400 transition-colors">Ceramic Coating</Link></li>
-              <li><Link href="/services/fleet-vehicles" className="hover:text-amber-400 transition-colors">Fleet Vehicles</Link></li>
+<li><Link href="/services/fleet-vehicles" className="hover:text-amber-400 transition-colors">Fleet Vehicles</Link></li>
               <li><Link href="/services/membership-plans" className="hover:text-amber-400 transition-colors">Membership Plans</Link></li>
             </ul>
           </div>

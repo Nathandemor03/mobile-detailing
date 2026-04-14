@@ -31,13 +31,6 @@ const services = [
     popular: true,
   },
   {
-    name: 'Ceramic Coating',
-    slug: 'ceramic-coating',
-    description: 'Professional-grade ceramic coating for long-term paint protection and hydrophobic finish.',
-    price: 299,
-    features: ['Paint decontamination', 'Surface prep & polish', 'Ceramic coating application', '6-month protection warranty', 'Hydrophobic finish', 'UV protection'],
-  },
-  {
     name: 'Pet Hair Removal',
     slug: 'pet-hair-removal',
     description: 'Specialized extraction of stubborn pet hair from all interior surfaces.',
@@ -94,7 +87,7 @@ export default function ServicesPage() {
                     Most Popular
                   </div>
                 )}
-                <div className="flex items-start justify-between mb-2">
+                <div className="mb-2">
                   <h2 className="text-xl font-bold">{service.name}</h2>
                   <span className="text-amber-400 font-bold text-xl">From ${service.price}</span>
                 </div>

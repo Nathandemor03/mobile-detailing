@@ -46,7 +46,6 @@ const services = [
   { name: 'Interior Detailing', slug: 'interior-detailing', price: 99 },
   { name: 'Exterior Wash & Wax', slug: 'exterior-wash-wax', price: 89 },
   { name: 'Full Detail', slug: 'full-detail', price: 179 },
-  { name: 'Ceramic Coating', slug: 'ceramic-coating', price: 299 },
   { name: 'Pet Hair Removal', slug: 'pet-hair-removal', price: 49 },
   { name: 'Odor Removal', slug: 'odor-removal', price: 39 },
 ]
